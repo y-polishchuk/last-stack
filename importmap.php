@@ -18,4 +18,7 @@ return [
         'path' => './assets/app.js',
         'entrypoint' => true,
     ],
+    'js-confetti' => [
+        'version' => '0.12.0',
+    ],
 ];
