@@ -27,7 +27,7 @@ class MainController extends AbstractController
     {
         $validSorts = ['purpose', 'leaveAt'];
         $sort = in_array($sort, $validSorts) ? $sort : 'leaveAt';
-
+        
         $pager = Pagerfanta::createForCurrentPageWithMaxPerPage(
             new QueryAdapter($voyageRepository->findBySearchQueryBuilder($query, $searchPlanets, $sort, $sortDirection)),
             $page,
