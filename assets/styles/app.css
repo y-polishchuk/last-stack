@@ -6,6 +6,11 @@ body {
     background-color: skyblue;
 }
 
+dialog {
+  backdrop: background-opacity-80;
+
+}
+
 /* tom-select custom styling */
 /* Base Styles for Dark Mode */
 .ts-wrapper {
