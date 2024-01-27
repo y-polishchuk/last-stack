@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus';
 
 export default class extends Controller {
-    static targets = ['dialog', 'dynamicContent'];
+    static targets = ['dialog', 'dynamicContent', 'loadingTemplate'];
 
     observer = null;
 
@@ -47,5 +47,13 @@ export default class extends Controller {
       if (event.target === this.dialogTarget) {
           this.dialogTarget.close();
       }
+    }
+
+    showLoading() {
+        // do nothing if the dialog is already open
+        if (this.dialogTarget.open) {
+            return;
+        }
+        this.dynamicContentTarget.innerHTML = this.loadingTemplateTarget.innerHTML;
     }
 }

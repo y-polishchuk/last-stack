@@ -64,10 +64,31 @@
             >
                 <div class="flex grow p-5">
                     <div class="grow overflow-auto p-1">
-                        <turbo-frame id="modal" data-modal-target="dynamicContent"></turbo-frame>
+                        <turbo-frame 
+                        id="modal" 
+                        data-modal-target="dynamicContent"
+                        data-action="turbo:before-fetch-request->modal#showLoading"
+                        class="aria-busy:opacity-50 transition-opacity"
+                        ></turbo-frame>
                     </div>
                 </div>
             </dialog>
+
+            <template data-modal-target="loadingTemplate">
+                <div class="bg-space-pattern bg-cover rounded-lg p-8">
+                    <div class="space-y-2">
+                        <div class="h-4 bg-gray-700 rounded w-3/4 animate-pulse"></div>
+                        <div class="h-4 bg-gray-700 rounded animate-pulse"></div>
+                        <div class="h-4 bg-gray-700 rounded animate-pulse"></div>
+                        <div class="h-4"></div>
+                        <div class="h-4 bg-gray-700 rounded animate-pulse"></div>
+                        <div class="h-4 bg-gray-700 rounded w-1/2 animate-pulse"></div>
+                        <div class="h-4 bg-gray-700 rounded w-3/4 animate-pulse"></div>
+                        <div class="h-4"></div>
+                        <div class="h-4 bg-gray-700 rounded w-1/2 animate-pulse"></div>
+                    </div>
+                </div>
+            </template>
         </div>
     </body>
 </html>
