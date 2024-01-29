@@ -66,12 +66,7 @@
                         data-action="turbo:before-fetch-request->modal#showLoading"
                         class="aria-busy:opacity-50 transition-opacity"
                         >
-                            <turbo-stream action="append" target="flash-container">
-                                <template>{{ include('_flashes.html.twig') }}</template>
-                            </turbo-stream>
-                            {% for stream in app.flashes('stream') %}
-                                {{ stream|raw }}
-                            {% endfor %}
+                            {{ include('_frameSuccessStreams.html.twig', { frame: 'modal' }) }}
                         </turbo-frame>
                     </div>
                 </div>
