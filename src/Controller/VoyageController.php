@@ -36,6 +36,13 @@ class VoyageController extends AbstractController
 
             $this->addFlash('success', 'Bon voyage!');
 
+            if ($request->headers->has('turbo-frame')) {
+                $stream = $this->renderBlockView('voyage/new.html.twig', 'stream_success', [
+                    'voyage' => $voyage
+                ]);
+                $this->addFlash('stream', $stream);
+            }
+            
             return $this->redirectToRoute('app_voyage_index', [], Response::HTTP_SEE_OTHER);
         }
 

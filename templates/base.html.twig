@@ -48,10 +48,6 @@
                 </div>
             </footer>
         </div>
-        
-        <div id="flash-container">
-            {{ include('_flashes.html.twig') }}
-        </div>
 
         <div
         data-controller="modal"
@@ -69,7 +65,14 @@
                         data-modal-target="dynamicContent"
                         data-action="turbo:before-fetch-request->modal#showLoading"
                         class="aria-busy:opacity-50 transition-opacity"
-                        ></turbo-frame>
+                        >
+                            <turbo-stream action="append" target="flash-container">
+                                <template>{{ include('_flashes.html.twig') }}</template>
+                            </turbo-stream>
+                            {% for stream in app.flashes('stream') %}
+                                {{ stream|raw }}
+                            {% endfor %}
+                        </turbo-frame>
                     </div>
                 </div>
             </dialog>
@@ -89,6 +92,10 @@
                     </div>
                 </div>
             </template>
+        </div>
+
+        <div id="flash-container">
+            {{ include('_flashes.html.twig') }}
         </div>
     </body>
 </html>
