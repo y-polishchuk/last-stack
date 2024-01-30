@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Voyage;
 use App\Form\VoyageType;
+use Symfony\UX\Turbo\TurboBundle;
 use App\Repository\VoyageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
@@ -37,10 +38,11 @@ class VoyageController extends AbstractController
             $this->addFlash('success', 'Bon voyage!');
 
             if ($request->headers->has('turbo-frame')) {
-                $stream = $this->renderBlockView('voyage/new.html.twig', 'stream_success', [
+                $request->setRequestFormat(TurboBundle::STREAM_FORMAT);
+
+                return $this->renderBlock('voyage/new.html.twig', 'stream_success', [
                     'voyage' => $voyage
                 ]);
-                $this->addFlash('stream', $stream);
             }
 
             return $this->redirectToRoute('app_voyage_index', [], Response::HTTP_SEE_OTHER);
