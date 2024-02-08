@@ -95,9 +95,11 @@
         "symfony/css-selector": "6.4.*",
         "symfony/debug-bundle": "6.4.x-dev",
         "symfony/maker-bundle": "^1.51",
+        "symfony/panther": "^2.1",
         "symfony/phpunit-bridge": "7.1.x-dev",
         "symfony/stopwatch": "6.4.x-dev",
         "symfony/web-profiler-bundle": "6.4.x-dev",
+        "zenstruck/browser": "1.x-dev",
         "zenstruck/foundry": "^1.36"
     }
 }
