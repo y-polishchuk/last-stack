@@ -30,6 +30,7 @@
         "symfony/ux-turbo": "2.x-dev",
         "symfony/ux-twig-component": "2.x-dev",
         "symfony/validator": "6.4.x-dev",
+        "symfony/web-link": "6.4.*",
         "symfony/yaml": "6.4.x-dev",
         "symfonycasts/dynamic-forms": "dev-main",
         "symfonycasts/tailwind-bundle": "dev-main",
