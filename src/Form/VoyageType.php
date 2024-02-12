@@ -22,11 +22,14 @@ class VoyageType extends AbstractType
             ->add('purpose')
             ->add('leaveAt', DateType::class, [
                 'widget' => 'single_text',
+                'attr' => [
+                    'data-controller' => 'datepicker',
+                ]
             ])
             ->add('planet', null, [
                 'choice_label' => 'name',
                 'placeholder' => 'Choose a planet',
-                // 'autocomplete' => true,
+                'autocomplete' => true,
             ])
             ->addDependent('wormholeUpgrade', ['planet'], function (DependentField $field, ?Planet $planet) {
                 if (!$planet || $planet->isInMilkyWay()) {

@@ -8,6 +8,7 @@ module.exports = {
     "./vendor/tales-from-a-dev/flowbite-bundle/templates/**/*.html.twig",
     "./src/Twig/Components/**/*.php"
   ],
+  darkMode: 'media',
   theme: {
     extend: {
       animation: {
